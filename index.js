@@ -12,6 +12,7 @@ console.log(`=== ІНСТРУКЦІЯ З ВИКОРИСТАННЯ ФУНКЦІЇ
 Приклади виклика:
   triangle(7, "leg", 18, "hypotenuse");
   triangle(60, "opposite angle", 5, "leg");
+  triangle(43.13, "angle", -2, "hypotenuse");
 ======================================================`);
 
 function triangle(val1, type1, val2, type2) {
