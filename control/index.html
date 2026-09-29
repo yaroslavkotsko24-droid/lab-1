@@ -1,1 +1,77 @@
-Контрольна робота — Коцко Я. Я.
+function TriangleArea(base = 7, height = 3) {
+    const area = 0.5 * base * height;
+    console.log(area);
+    return area;
+}
+
+TriangleArea();
+TriangleArea(3, 6);
+
+function Boat(color, maxSpeed, maxTonnage, brand, countryOfRegistration) {
+    this.color = color;
+    this.maxSpeed = maxSpeed;
+    this["max tonnage"] = maxTonnage;
+    this.brand = brand;
+    this["country of registration"] = countryOfRegistration;
+}
+
+Boat.prototype.AssignCaptain = function(name, yearsOfExperience, hasFamily) {
+    this.captain = {
+        name: name,
+        "years of experience": yearsOfExperience,
+        hasFamily: hasFamily
+    };
+};
+
+const myBoat = new Boat("blue", 45.5, 120, "Yamaha", "Ukraine");
+myBoat.AssignCaptain("John Smith", 15, true);
+console.log(myBoat);
+
+class SimpleCircle {
+    constructor(majorRadius) {
+        this._majorRadius = majorRadius;
+    }
+
+    set majorRadius(value) {
+        if (value > 0) {
+            this._majorRadius = value;
+        }
+    }
+
+    get majorRadius() {
+        return this._majorRadius;
+    }
+}
+
+class SimpleEllipse extends SimpleCircle {
+    constructor(majorRadius, minorRadius) {
+        super(majorRadius);
+        this.minorRadius = minorRadius;
+    }
+
+    static calculateArea(ellipse) {
+        return Math.PI * ellipse._majorRadius * ellipse.minorRadius;
+    }
+}
+
+const circle = new SimpleCircle(10);
+console.log(circle);
+circle.majorRadius = 15;
+
+const ellipse = new SimpleEllipse(12, 8);
+console.log(ellipse);
+console.log(SimpleEllipse.calculateArea(ellipse));
+
+function SubGenerator(baseNumber) {
+    return function(num) {
+        return num - baseNumber;
+    };
+}
+
+const subFive = SubGenerator(5);
+const subTenPointFive = SubGenerator(10.5);
+
+console.log(subFive(20));
+console.log(subFive(3.5));
+console.log(subTenPointFive(30));
+console.log(subTenPointFive(10.5));
